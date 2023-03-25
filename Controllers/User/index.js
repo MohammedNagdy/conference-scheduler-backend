@@ -1,6 +1,7 @@
 // Express Validator
 const { body, validationResult } = require('express-validator');
 
+const User = require('../../Models/User');
 const ifUserExists = require('../../utils/custom-validators');
 
 
@@ -21,5 +22,11 @@ exports.signup = (req, res, next) => {
 // Validation
 exports.signupValidators = [
     body('email').isEmail(),
-    body('email').custom(ifUserExists('Email', email)),
+    body('email').custom((fieldName, value) => {
+        return User.findUserByEmail(value).then(user => {
+          if (user) {
+            return Promise.reject(`${fieldName} already exists`);
+          }
+        });
+    }),
 ]

@@ -1,9 +1,10 @@
+const express = require('express');
+const router = express.Router();
 const user = require('../../Controllers/User');
-const AUTH_URL = '/auth';
 
 // TODO: Add validators in the middleware
 // TODO: Abstract main router for all routes
-exports.routes = (app) => {
-    app.post(`${AUTH_URL}/login`, user.login);
-    app.post(`${AUTH_URL}/signup`, user.signup);
-}
+router.post(`/login`, user.login);
+router.post(`/signup`, user.signupValidators ,user.signup);
+
+module.exports = router
