@@ -6,5 +6,6 @@ const user = require('../../Controllers/User');
 // TODO: Abstract main router for all routes
 router.post(`/login`, user.login);
 router.post(`/signup`, user.signupValidators ,user.signup);
+router.get(`/preview`, user.preview);
 
 module.exports = router

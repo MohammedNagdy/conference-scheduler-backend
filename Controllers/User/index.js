@@ -20,14 +20,21 @@ exports.signup = (req, res, next) => {
         1000, 64, `sha512`).toString(`hex`),
     }
    // TODO: Create a user with encrypted password
+   console.log("Called Post USER API");
    User.create(newUser)
     .then( user => {
+      console.log("User created: ", user);
       res.status(200);
     }).catch( err => {
       res.send(`Error ${err}`).status(500);
     })
 
 }
+
+exports.preview = (req, res, next ) => {
+  console.log("Preview here")
+  res.send("Another route being tested!");
+};
 
 // Validation
 exports.signupValidators = [

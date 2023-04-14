@@ -21,10 +21,6 @@ app.use(cors())
 app.get("/", (req, res, next ) => {
     res.send("Hello World!");
 });
-app.get("/preview", (req, res, next ) => {
-    res.send("Another route being tested!");
-});
-
 
 // Register routes
 router.routes(app);
