@@ -24,11 +24,10 @@ exports.signup = (req, res, next) => {
    User.create(newUser)
     .then( user => {
       console.log("User created: ", user);
-      res.status(200);
+      res.sendStatus(200);
     }).catch( err => {
       res.send(`Error ${err}`).status(500);
     })
-
 }
 
 exports.preview = (req, res, next ) => {
