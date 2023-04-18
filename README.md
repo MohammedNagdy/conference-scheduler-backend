@@ -6,4 +6,5 @@ Conference scheduler app with notification system. You can login and add appoitm
 DB="<MongoDatabaseConnectionUri>"
 PORT=<PreferredPortNumber>
 salt="<SaltEncryptionKey>"
+secret="<JwtTokenSecretKey>"
 ```
